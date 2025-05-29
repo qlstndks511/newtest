@@ -1,0 +1,517 @@
+﻿@charset "UTF-8";
+
+
+
+body {
+  color: var(--text-primary);
+}
+
+/* ---（社員管理システム） -- */
+h3 {
+  padding: 0 0 20px 0;
+  margin: 0 0 30px 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  border-bottom: 3px solid transparent;
+  background: linear-gradient(var(--blue-500), var(--blue-600)) bottom left / 60px 3px no-repeat;
+  position: relative;
+}
+
+
+/* ---- 下は息子 ---- */
+/*.contentは中身*/
+h3::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  
+  left: 60px;
+  width: 20px;
+  height: 3px;
+  background: var(--blue-100);
+  border-radius: 2px;
+}
+
+
+/* ---- 社員登録入力画面へのリンク ---- */
+div.regist_link {
+  padding: 0 0 20px 0;
+  text-align: right;
+}
+
+
+div.regist_link a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--primary-gradient);
+  color: white;
+  text-decoration: none;
+  
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: var(--shadow-light);
+  font-size: 14px;
+}
+
+
+div.regist_link a:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+
+/*アイコン作る*/
+div.regist_link a::before {
+  content: '+';
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+
+/*  社員情報一覧テーブル */
+table {
+  background: white;
+  border: none;
+  border-radius: var(--border-radius);
+  
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0 auto 30px;
+  width: 100%;
+  overflow: hidden;
+  box-shadow: var(--shadow-light);
+}
+
+table thead {
+  background: var(--header-gradient);
+}
+
+table th {
+  background-color: white;
+  opacity: 1;
+}
+
+
+table td {
+  border: none;
+  padding: 16px 12px;
+  border-bottom: 1px solid var(--blue-50);
+  transition: var(--transition);
+  text-align: center;
+}
+
+table tbody tr {
+  transition: var(--transition);
+}
+
+table tbody tr:hover {
+  background: var(--blue-50);
+  transform: scale(1.01);
+  box-shadow: var(--shadow-light);
+}
+
+/*最後の子にはラインなし*/
+
+table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+td.data {
+  width: 60px;
+  text-align: center;
+  font-weight: 500;
+}
+table {
+  font-size: 14px; 
+}
+
+th.empId { width: 120px; }
+th.empName { width: 150px; }
+th.gender { width: 70px; }
+th.address { width: 70px; }
+th.birthday { width: 120px; }
+th.authority { width: 80px; }
+th.deptName { width: 80px; }
+
+/* アクションボタンテーブル */
+td a {
+  display: inline-block;
+  padding: 6px 12px;
+  margin: 2px;
+  border-radius: 6px;
+  
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  transition: var(--transition);
+}
+/*update全部*/
+td a[href*="update"] {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+}
+/*delte全部*/
+
+td a[href*="delete"] {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+}
+
+td a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0,0,0,1);
+}
+
+
+
+/*  入力フォーム(検索、登録)  */
+div.form {
+  flex-direction: row;
+  max-width: 800px;
+  /*margin:auto;*/
+  /*gap: 20px;*/
+}
+
+
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+
+
+div.label {
+  /*width: 200px;*/
+  font-weight: 600;
+  color: var(--text-primary);
+  /*text-align: right*/
+  font-size: 14px;
+}
+
+div.input {
+ /* flex: 1;
+  display: flex;
+  align-items: center;*/
+}
+
+
+
+div.input input[type="text"],
+div.input input[type="date"],
+div.input input[type="password"] {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid var(--blue-100);
+  
+  border-radius: var(--border-radius);
+  font-size: 15px;
+  transition: var(--transition);
+  background: white;
+  font-family: inherit;
+}
+
+div.input input:focus {
+  outline: none;
+  border-color: var(--blue-500);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  transform: translateY(-1px);
+}
+
+select {
+  padding: 14px 18px;
+  border: 2px solid var(--blue-100);
+  
+  border-radius: var(--border-radius);
+  font-size: 15px;
+  color: var(--text-primary);
+  background: white;
+  transition: var(--transition);
+  font-family: inherit;
+  width: 100%;
+}
+
+select:focus {
+  outline: none;
+  
+  border-color: var(--blue-500);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* ログイン -*/
+.login_form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.95);
+  
+  border-radius: 20px;
+  box-shadow: var(--shadow-heavy);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  max-width: 400px;
+  width: 100%;
+}
+
+.login_form h2 {
+  text-align: center;
+  margin: 0 0 10px 0;
+  
+  font-size: 28px;
+  font-weight: 700;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.login_form p {
+  text-align: center;
+  margin: 0 0 20px 0;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+
+
+div.login_label {
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+
+
+div.login_input input {
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid var(--blue-100);
+  border-radius: var(--border-radius);
+  font-size: 15px;
+  transition: var(--transition);
+  background: white;
+  font-family: inherit;
+}
+
+
+div.login_input input:focus {
+  outline: none;
+  border-color: var(--blue-500);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+
+
+
+/* メッセージ */
+div.message {
+  padding: 30px;
+  text-align: center;
+  margin: 20px 0;
+}
+
+
+
+/* ボタン全て */
+
+
+
+input[type=submit],
+button {
+  padding: 1px 10px;
+  background: var(--primary-gradient);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+ 
+ 
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 15px;
+  box-shadow: var(--shadow-light);
+  font-family: inherit;
+  min-width: 120px;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  
+  
+}
+
+input[type=submit]:hover,
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+input[type=submit]:active,
+button:active {
+  transform: translateY(0);
+}
+
+
+
+td form input[type="submit"] {
+  padding: 7px 14px;
+  font-size: 12px;
+  min-width: 60px;
+}
+
+
+.btn-secondary {
+  background: linear-gradient(135deg, #64748b, #475569) !important;
+}
+
+.update {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  background: var(--card-gradient);
+  border-radius: var(--border-radius);
+  
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--blue-100);
+   display: flex;
+  flex-direction: column;
+}
+
+
+/* sumbitフォームボタン */
+.form-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid var(--blue-100);
+}
+
+.form {
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+  gap: 10px;
+  width: 100%;  
+  max-width: 700px; 
+  margin-bottom: 15px;
+}
+
+
+
+
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    align-items: stretch;/*ストレッチ！*/
+    gap: 8px;
+  }
+  
+  div.label {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .login_form {
+    margin: 20px;
+    padding: 30px 25px;
+        flex-direction: row;
+
+  }
+  
+  table {
+    font-size: 12px;
+    margin: 0 auto 30px;
+  width: 100%;
+  }
+  
+  table th,
+  table td {
+    padding: 10px 6px;
+  }
+  
+  article {
+    flex: 1;
+    width: 100%;
+    margin: 0;
+    background: var(--card-gradient);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    padding: 30px;
+    border: 1px solid var(--blue-100);
+    backdrop-filter: blur(10px);
+}
+
+aside {
+  
+    /*width: 250px;*/
+    max-width: 500px;
+    background: var(--card-gradient);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    padding: 20px;
+    height: fit-content;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    /*position: relative:*/
+    margin-left: 0;
+}
+
+.search{
+	margin:0;
+	margin-top: 20px;
+	width: 100%;
+	
+}
+
+.content {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+    
+}
+aside .title {
+	width: 100%;
+}
+
+input{
+	width: 100%;
+	
+}
+.form {
+    display: contents;
+    }
+
+.update {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background: var(--card-gradient);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--blue-100);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type=submit],button{
+	margin-top: 9px;
+}
+
+div.input{
+	margin-bottom: 15px;
+}
+
+
+  }

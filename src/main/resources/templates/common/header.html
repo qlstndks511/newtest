@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8" />
+</head>
+
+<body>
+	<th:block th:fragment="layout-header">
+		<header class="custom-header">
+			<div class="header-left">
+				<a th:href="@{/list}" class="logo-text">社員管理システム</a>
+			</div>
+
+			<div class="header-right" th:if="${session.user != null}">
+				ようこそ、<span th:text="${session.user.empName}"></span>さん
+				<span class="separator">|</span>
+				<a th:href="@{/logout}" class="logout-link">ログアウト</a>
+			</div>
+		</header>
+	</th:block>
+</body>
+
+</html>

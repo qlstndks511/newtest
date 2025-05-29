@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>ログイン | 社員管理システム</title>
+<meta charset="UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" th:href="@{/css/login.css}" />
+
+</head>
+<body>
+	
+	<th:block th:fragment="layout-main">
+	<div th:object="${loginForm}">
+        <h3>ログイン画面</h3>
+        <div>
+            <!-- エラーメッセージ -->
+            <div th:if="${#fields.hasErrors('empId')}" th:each="error : ${#fields.errors('empId')}">
+				<!--#field=thymeleafから呼びだす-->
+                <p th:text="${error}"></p>
+            </div>
+            <div th:if="${#fields.hasErrors('empPass')}" th:each="error : ${#fields.errors('empPass')}">
+                <p th:text="${error}"></p>
+            </div>
+
+            <!-- ログイン失敗 -->
+            <p th:if="${errMessage}" th:text="${errMessage}"></p>
+            
+        </div>
+
+        <form method="post" th:action="@{/login}">
+            <div class="login_form">
+                <div class="label">社員ID</div>
+                <div class="login_input">
+                    <input type="text" th:field="*{empId}" />
+                </div>
+            </div>
+
+            <div class="login_form">
+                <div class="label">パスワード</div>
+                <div class="input">
+                    <input type="password" th:field="*{empPass}" />
+                
+                </div>
+            </div>
+
+            <div class="login_form">
+                <div class="label"></div>
+                <div class="input">
+                    <input type="submit" value="ログイン" />
+                </div>
+            </div>
+            <!--効果-->
+             <div class="wrapper">
+    <div class="box">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <!--効果-->
+        </form>
+        
+	</th:block>
+</body>
+</html>

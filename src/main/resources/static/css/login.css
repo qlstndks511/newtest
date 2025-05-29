@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --card-gradient: linear-gradient(145deg, #ffffff 0%, #f8fbff 100%);
+  --blue-100: #dbeafe;
+  --blue-500: #3b82f6;
+  --blue-600: #2563eb;
+  --text-primary: #1e293b;
+  --border-radius: 12px;
+  --transition: all 0.3s ease;
+  --shadow-light: 0 4px 20px rgba(33, 150, 243, 0.1);
+  --shadow-medium: 0 8px 30px rgba(33, 150, 243, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  color: var(--text-primary);
+}
+
+h3 {
+  font-size: 25px;
+  margin-bottom: 24px;
+  color: whitesmoke;
+  text-align: center;
+}
+
+form {
+  background: var(--card-gradient);
+  padding: 30px 40px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-medium);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login_form {
+  margin-bottom: 20px;
+}
+
+.login_label {
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.login_input input,
+.input input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid var(--blue-100);
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  font-size: 14px;
+  background: white;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  background: var(--blue-600);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+input[type="submit"]:hover {
+  background: var(--blue-500);
+  transform: translateY(-1px);
+}
+
+p {
+  color: whitesmoke;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+/*z-index使う*/
+.wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgba(5,5,15,0.6) 0%, rgba(9,9,121,1) 35%, rgba(0,212,230,1) 100%);
+  z-index: -1;
+}
+
+.box div {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background-color: rgba(255, 255, 255, 0.1); 
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 8px; 
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-name: animate;
+}
+
+.box div:nth-child(1) { top: 12%; left: 42%; animation-duration: 10s; }
+.box div:nth-child(2) { top: 70%; left: 50%; animation-duration: 7s; }
+.box div:nth-child(3) { top: 17%; left: 6%; animation-duration: 9s; }
+.box div:nth-child(4) { top: 20%; left: 60%; animation-duration: 10s; }
+.box div:nth-child(5) { top: 67%; left: 10%; animation-duration: 6s; }
+.box div:nth-child(6) { top: 80%; left: 70%; animation-duration: 12s; }
+.box div:nth-child(7) { top: 60%; left: 80%; animation-duration: 15s; }
+.box div:nth-child(8) { top: 32%; left: 25%; animation-duration: 16s; }
+.box div:nth-child(9) { top: 90%; left: 25%; animation-duration: 9s; }
+.box div:nth-child(10) { top: 20%; left: 80%; animation-duration: 5s; }
+
+@keyframes animate {
+  0% {
+    transform: scale(0) translateY(0) rotate(0deg);
+    opacity: 0.8;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.8) translateY(-45px) rotate(180deg);
+    opacity: 0.6;
+  }
+  75% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.3) translateY(-90px) rotate(360deg);
+    opacity: 0;
+  }
+}

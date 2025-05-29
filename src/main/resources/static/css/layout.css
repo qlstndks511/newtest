@@ -1,0 +1,311 @@
+﻿@charset "UTF-8";
+
+/* ---- 画面の大枠のレイアウト用CSS ---- */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --secondary-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --header-gradient: linear-gradient(135deg, #2196f3 0%, #1976d2 50%, #0d47a1 100%);
+  --card-gradient: linear-gradient(145deg, #ffffff 0%, #f8fbff 100%);
+  --shadow-light: 0 4px 20px rgba(33, 150, 243, 0.1);
+  --shadow-medium: 0 8px 30px rgba(33, 150, 243, 0.15);
+  --shadow-heavy: 0 15px 40px rgba(33, 150, 243, 0.2);
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --blue-50: #eff6ff;
+  --blue-100: #dbeafe;
+  --blue-500: #3b82f6;
+  --blue-600: #2563eb;
+  --blue-700: #1d4ed8;
+  --border-radius: 12px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* 全て(息子もbox内に) */
+* {
+  box-sizing: border-box;
+}
+
+/*フォントない場合次に*/
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f8fafc 100%);
+  min-height: 100vh;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.content {
+　margin: 0;
+  padding:0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  max-width: 100%;
+  justify-content: center;
+  
+}
+
+.login {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-gradient);
+}
+
+/* ヘッダーの部分*/
+header {
+  height: auto;
+  width: 100%;
+  background: var(--header-gradient);
+  box-shadow: var(--shadow-medium);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  line-height: 1;
+  font-size: 15px;
+  font-weight: 500;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  text-decoration: none;
+}
+
+.custom-header {
+  background: var(--header-gradient);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  height: 70px;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+
+
+.header-left .logo-text {
+  font-size: 25px;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  transition: var(--transition);
+}
+
+a{
+	font-size: 15px;
+  font-weight: 700;
+  color: skyblue;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  transition: var(--transition);
+}
+
+.header-left .logo-text:hover {
+  transform: translateY(-1px);
+  text-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-weight: 500;
+}
+
+.separator {
+  color: rgba(255,255,255,0.6);
+}
+
+.logout-link {
+  color: white;
+  text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.1);
+  transition: var(--transition);
+}
+
+.logout-link:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-1px);
+}
+
+header .title {
+  margin-left: 20px;
+  line-height: 1;
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+header .user_info {
+  margin-right: 30px;
+  line-height: 1;
+  text-align: right;
+  font-weight: 500;
+}
+
+/*サイド */
+aside {
+  width: 250px;
+  max-width: 250px;
+  background: var(--card-gradient);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  padding: 20px;
+  height: fit-content;
+  position: sticky;
+  top: 90px;
+  border: 1px solid var(--blue-100);
+  margin-top: 40px;
+  margin-left: 40px
+}
+
+
+aside .title {
+  background: var(--secondary-gradient);
+  margin: 0 0 20px 0;
+  padding: 15px 20px;
+  font-weight: 600;
+  border-radius: var(--border-radius);
+  color: white;
+  text-align: center;
+  box-shadow: var(--shadow-light);
+  position: relative;
+  overflow: hidden;
+}
+/*子供*/
+aside .title::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+  transform: rotate(45deg);
+  transition: var(--transition);
+}
+
+
+
+aside .form {
+  padding: 0;
+}
+
+aside input[type=text] {
+  width: 100%;
+  margin: 0 0 15px 0;
+  padding: 12px 16px;
+  border: 2px solid var(--blue-100);
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  transition: var(--transition);
+  background: white;
+  font-family: inherit;
+}
+/*クリック*/
+aside input[type=text]:focus {
+  outline: none;
+  border-color: var(--blue-500);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  transform: translateY(-1px);
+}
+
+aside select {
+  width: 100%;
+  margin: 0 0 15px 0;
+  padding: 12px 16px;
+  border: 2px solid var(--blue-100);
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  background: white;
+  transition: var(--transition);
+  font-family: inherit;
+}
+
+aside select:focus {
+  outline: none;
+  border-color: var(--blue-500);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+aside input[type=submit] {
+  width: 100%;
+  padding: 12px 20px;
+  background: var(--primary-gradient);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 14px;
+  box-shadow: var(--shadow-light);
+  font-family: inherit;
+}
+
+aside input[type=submit]:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+aside input[type=submit]:active {
+  transform: translateY(0);
+}
+
+/* -- メイン -- */
+article {
+  flex: 1;
+  width: 700px;
+  margin: 0px 80px;
+  background: var(--card-gradient);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+  padding: 30px;
+  border: 1px solid var(--blue-100);
+}
+
+footer {
+  margin-top: 50px;
+  padding: 20px 0;
+  background: var(--header-gradient);
+  text-align: center;
+  font-size: 12px;
+  color: white;
+  box-shadow: var(--shadow-medium);
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    padding: 15px;
+    gap: 20px;
+  }
+  
+  aside {
+    width: 100%;
+    position: static;
+  }
+  
+  .custom-header {
+    padding: 15px 20px;
+    flex-direction: column;
+    height: auto;
+    gap: 10px;
+  }
+  
+  .header-left .logo-text {
+    font-size: 20px;
+  }
+}
